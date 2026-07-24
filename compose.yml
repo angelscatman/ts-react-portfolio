@@ -5,6 +5,15 @@ services:
       dockerfile: Dockerfile
     container_name: ts-portfolio
     restart: unless-stopped
+
+    read_only: true # Only allow writing to tmpfs mounts (see below).
+
+    # Nginx needs to write to some directories, such as /tmp, /var/cache/nginx, and /var/run.
+    tmpfs:
+      - /tmp:exec,mode=1777
+      - /var/cache/nginx
+      - /var/run
+
     expose:
       - '8080'
     ports:
