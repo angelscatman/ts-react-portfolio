@@ -1,0 +1,19 @@
+{
+  "tags": ["Sitio web", "Frontend", "2024"],
+  "year": "2024",
+  "role": "Desarrollador frontend",
+  "meta": [
+    { "label": "Rol", "value": "Desarrollador frontend" },
+    { "label": "Duracion", "value": "4 semanas" },
+    { "label": "Tipo", "value": "Sitio web" },
+    { "label": "Habilidades", "value": "React, motion, UI" }
+  ],
+  "sections": [
+    {
+      "eyebrow": "Resumen",
+      "body": [
+        "Un ejercicio visual para probar composiciones editoriales, imagen grande y microinteracciones sobrias."
+      ]
+    }
+  ]
+}

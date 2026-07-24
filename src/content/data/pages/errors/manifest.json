@@ -1,0 +1,42 @@
+{
+  "generic": {
+    "code": "Error",
+    "title": { "es": "Algo no salió como esperábamos.", "en": "Something did not go as expected." },
+    "description": {
+      "es": "Puedes volver al inicio o intentarlo de nuevo en unos segundos.",
+      "en": "You can go back home or try again in a few seconds."
+    },
+    "actionLabel": { "es": "Volver al trabajo", "en": "Back to work" },
+    "actionHref": "/"
+  },
+  "forbidden": {
+    "code": "403",
+    "title": { "es": "No tienes acceso a esta vista.", "en": "You do not have access to this view." },
+    "description": {
+      "es": "Este contenido no esta disponible desde esta ruta.",
+      "en": "This content is not available from this route."
+    },
+    "actionLabel": { "es": "Volver al trabajo", "en": "Back to work" },
+    "actionHref": "/"
+  },
+  "notFound": {
+    "code": "404",
+    "title": { "es": "Página no encontrada.", "en": "Page not found." },
+    "description": {
+      "es": "La ruta que abriste no existe o cambio de lugar.",
+      "en": "The route you opened does not exist or has moved."
+    },
+    "actionLabel": { "es": "Volver al trabajo", "en": "Back to work" },
+    "actionHref": "/"
+  },
+  "content": {
+    "code": "Contenido",
+    "title": { "es": "No pudimos cargar este contenido.", "en": "We could not load this content." },
+    "description": {
+      "es": "El contrato de datos no devolvió una entrada valida para esta vista.",
+      "en": "The data contract did not return a valid entry for this view."
+    },
+    "actionLabel": { "es": "Volver al trabajo", "en": "Back to work" },
+    "actionHref": "/"
+  }
+}

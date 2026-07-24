@@ -1,0 +1,19 @@
+{
+  "tags": ["Externo", "Sistemas", "CSS"],
+  "readingTime": "4 min",
+  "perspective": "Frontend",
+  "meta": [
+    { "label": "Tipo", "value": "Nota externa" },
+    { "label": "Tiempo de lectura", "value": "4 min" },
+    { "label": "Tema", "value": "Sistemas de diseno" },
+    { "label": "Publicado", "value": "2026" }
+  ],
+  "sections": [
+    {
+      "eyebrow": "Notas",
+      "body": [
+        "Una nota externa sobre sistemas visuales y decisiones de interfaz."
+      ]
+    }
+  ]
+}

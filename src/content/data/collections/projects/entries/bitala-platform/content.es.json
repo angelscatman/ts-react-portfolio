@@ -1,0 +1,27 @@
+{
+  "tags": ["Caso de estudio", "SaaS", "2025"],
+  "year": "2025",
+  "role": "Desarrollador fullstack",
+  "meta": [
+    { "label": "Rol", "value": "Desarrollador fullstack" },
+    { "label": "Duración", "value": "3 meses" },
+    { "label": "Equipo", "value": "2 desarrolladores" },
+    { "label": "Habilidades", "value": "React, Node.js, diseno" }
+  ],
+  "sections": [
+    {
+      "eyebrow": "Resumen",
+      "title": "Que deberiamos construir para el futuro del trabajo?",
+      "body": [
+        "Como equipo pequeño, el objetivo fue aterrizar una vision clara para una herramienta productiva dentro de un tiempo limitado.",
+        "Exploramos conceptos, validamos con usuarios potenciales y cuidamos una interfaz editorial con caracter brutalista."
+      ]
+    },
+    {
+      "eyebrow": "Solución",
+      "body": [
+        "La solucion balancea jerarquia editorial con flujos practicos de producto."
+      ]
+    }
+  ]
+}

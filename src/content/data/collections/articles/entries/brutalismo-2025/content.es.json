@@ -1,0 +1,26 @@
+{
+  "tags": ["Articulo", "Diseno", "Opinion"],
+  "readingTime": "6 min",
+  "perspective": "Diseno",
+  "meta": [
+    { "label": "Tipo", "value": "Articulo" },
+    { "label": "Tiempo de lectura", "value": "6 min" },
+    { "label": "Tema", "value": "Brutalismo" },
+    { "label": "Publicado", "value": "2026" }
+  ],
+  "sections": [
+    {
+      "eyebrow": "Contexto",
+      "body": [
+        "Despues de anos de interfaces homogeneas, las marcas buscan piezas con mas presencia visual e intencion editorial.",
+        "El brutalismo no es una moda aislada; es una respuesta a la saturacion de patrones visuales repetidos."
+      ]
+    },
+    {
+      "eyebrow": "Argumento",
+      "body": [
+        "Funciona porque prioriza jerarquia, contraste y personalidad. Cuando se controla bien, puede ser tan usable como memorable."
+      ]
+    }
+  ]
+}

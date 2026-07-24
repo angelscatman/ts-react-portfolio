@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "brutalismo-2025",
+    "kind": "article",
+    "status": "draft",
+    "title": { "es": "Por que el diseno brutalista funciona en 2025", "en": "Why brutalist design works in 2025" },
+    "excerpt": {
+      "es": "Una exploracion sobre como la fatiga de interfaces limpias nos devuelve a disenos con mas caracter.",
+      "en": "An exploration of how clean-interface fatigue is pulling us back toward designs with stronger character."
+    },
+    "coverImage": "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=2070&auto=format&fit=crop",
+    "coverAlt": { "es": "Textura editorial con geometria brutalista", "en": "Editorial texture with brutalist geometry" },
+    "publishedAt": "2026-05-01",
+    "destination": { "label": { "es": "Leer articulo", "en": "Read article" }, "href": "/articles/brutalismo-2025", "type": "internal" }
+  },
+  {
+    "slug": "design-tokens-tailwind",
+    "kind": "article",
+    "status": "draft",
+    "title": { "es": "Construyendo sistemas de diseno con Tailwind CSS", "en": "Building design systems with Tailwind CSS" },
+    "excerpt": {
+      "es": "Notas sobre tokens, simetria visual y como evitar que un diseno pierda consistencia con el tiempo.",
+      "en": "Notes on tokens, visual symmetry, and how to keep a design from losing consistency over time."
+    },
+    "coverImage": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop",
+    "coverAlt": { "es": "Espacio de trabajo con pantallas", "en": "Workspace with screens" },
+    "publishedAt": "2026-02-01",
+    "destination": { "label": { "es": "Abrir nota", "en": "Open note" }, "href": "https://example.com", "type": "external" }
+  }
+]

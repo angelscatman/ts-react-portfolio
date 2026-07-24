@@ -1,0 +1,25 @@
+[
+  {
+    "slug": "bitala-platform",
+    "featured": true,
+    "kind": "project",
+    "status": "draft",
+    "title": { "es": "Bitala Platform", "en": "Bitala Platform" },
+    "excerpt": { "es": "Diseno de producto y desarrollo fullstack para una plataforma SaaS.", "en": "Product design and fullstack development for a SaaS platform." },
+    "coverImage": "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?q=80&w=2070&auto=format&fit=crop",
+    "coverAlt": { "es": "Vista abstracta de interfaz digital", "en": "Abstract digital interface view" },
+    "publishedAt": "2026-05-01",
+    "destination": { "label": { "es": "Caso de estudio", "en": "Case study" }, "href": "/projects/bitala-platform", "type": "internal" }
+  },
+  {
+    "slug": "creative-studio",
+    "kind": "project",
+    "status": "draft",
+    "title": { "es": "Creative Studio", "en": "Creative Studio" },
+    "excerpt": { "es": "Frontend experimental para una identidad visual sobria y expresiva.", "en": "Experimental frontend for a sober and expressive visual identity." },
+    "coverImage": "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1964&auto=format&fit=crop",
+    "coverAlt": { "es": "Mesa de trabajo creativa", "en": "Creative work desk" },
+    "publishedAt": "2026-02-01",
+    "destination": { "label": { "es": "Visitar web", "en": "Visit website" }, "href": "https://example.com", "type": "external" }
+  }
+]

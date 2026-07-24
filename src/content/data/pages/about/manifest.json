@@ -1,0 +1,93 @@
+{
+  "heading": { "es": "Hola.", "en": "Hello." },
+  "hero": {
+    "title": {
+      "es": "Diseñador, desarrollador y creador de productos.",
+      "en": "Designer, developer, and product builder."
+    },
+    "subtitle": {
+      "es": "Abierto a oportunidades laborales y colaboraciones.",
+      "en": "Open to job opportunities and collaborations."
+    }
+  },
+  "intro": {
+    "paragraphs": [
+      {
+        "es": "Soy Angel. Me apasiona pensar en la gente, los productos y el futuro de la tecnología.",
+        "en": "I am Angel. I'm passionate about people, products, and the future of technology."
+      },
+      {
+        "es": "Disfruto transformar mis ideas en software y moverme en esa frontera entre lo digital y el hardware.",
+        "en": "I enjoy transforming ideas into software, bridging the gap between digital systems and hardware."
+      },
+      {
+        "es": "Me enfoco en diseñar interfaces bonitas e intuitivas, modelar datos y resolver problemas, siempre aprovechando la IA para prototipar rápido y explorar nuevas posibilidades.",
+        "en": "I focus on designing beautiful and intuitive interfaces, modeling data, and solving problems, always leveraging AI to prototype quickly and explore new possibilities."
+      },
+      {
+        "es": "Si estás emprendiendo, tienes una pequeña empresa o trabajas en un proyecto interesante, me encantaría ser parte. ¡No dudes en contactarme!",
+        "en": "If you are starting a business, own a small company, or are working on an interesting project, I'd love to contribute—feel free to reach out!"
+      }
+    ],
+    "bullets": [
+      {
+        "es": "Quejándome en Deadlock o intentando salvar mi run en Balatro.",
+        "en": "Complaining in Deadlock or trying to save a Balatro run."
+      },
+      {
+        "es": "Investigando sobre pantallas, piezas 3D, componentes y prototipos sencillos.",
+        "en": "Researching displays, 3D parts, components, and simple prototypes."
+      },
+      {
+        "es": "Escuchando música (¡ojalá algún día tenga una colección de vinilos!).",
+        "en": "Listening to music (hopefully building a vinyl collection soon!)."
+      }
+    ],
+    "contactLine": {
+      "prefix": {
+        "es": "Si quieres escribirme para colaborar o simplemente ser amigos, puedes encontrarme en",
+        "en": "If you want to reach out for collaboration or just to be friends, you can find me on"
+      },
+      "suffix": { "es": ".", "en": "." },
+      "links": ["linkedin", "github", "email"]
+    }
+  },
+  "gallerySections": [
+    {
+      "number": "01",
+      "label": {
+        "es": "GALERÍA",
+        "en": "GALLERY"
+      },
+      "images": [
+        {
+          "src": "/about/01/keyboard.jpeg",
+          "alt": {
+            "es": "Teclado mecánico sobre el escritorio",
+            "en": "Custom mechanical keyboard on my desk"
+          },
+          "cursorText": { "es": "Este es mi teclado :)", "en": "This is my keyboard :)" },
+          "cursorIcon": "none"
+        },
+        {
+          "src": "/about/01/balatro.jpg",
+          "alt": {
+            "es": "Mi mejor run en Balatro",
+            "en": "My best run in Balatro"
+          },
+          "cursorText": { "es": "Mi pasión: Balatro", "en": "My obsession: Balatro" },
+          "cursorIcon": "none"
+        },
+        {
+          "src": "/about/01/see-no-evil-apple-music.gif",
+          "alt": {
+            "es": "Captura de letra en Apple Music con 'see no evil - destroy lonely'",
+            "en": "Apple Music lyrics screenshot featuring 'see no evil - destroy lonely'"
+          },
+          "cursorText": { "es": "young vamp life", "en": "young vamp life" },
+          "cursorIcon": "none"
+        }
+      ]
+    }
+  ]
+}

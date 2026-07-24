@@ -1,0 +1,13 @@
+{
+  "name": { "es": "Angel Rodriguez", "en": "Angel Rodriguez" },
+  "heading": { "es": "Currículum.", "en": "Resume." },
+  "download": { "es": "Descargar Currículum", "en": "Download Resume" },
+  "open": { "es": "Abrir PDF", "en": "Open PDF" },
+  "checking": { "es": "Buscando PDF", "en": "Checking PDF" },
+  "viewerFallback": { "es": "Tu navegador no pudo mostrar el PDF.", "en": "Your browser could not display the PDF." },
+  "pendingLabel": { "es": "Archivo pendiente", "en": "PDF pending" },
+  "pendingHint": {
+    "es": "No hay CV disponible para el idioma seleccionado en el catálogo.",
+    "en": "There is no resume available for the selected language in the catalog."
+  }
+}
