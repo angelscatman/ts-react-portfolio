@@ -3,7 +3,6 @@
   "defaultLocale": "es",
   "titles": [
     { "es": "Desarrollador de software", "en": "Software developer" },
-    { "es": "Diseñador de producto", "en": "Product designer" },
-    { "es": "Creative coder", "en": "Creative coder" }
+    { "es": "Diseñador de producto", "en": "Product designer" }
   ]
 }

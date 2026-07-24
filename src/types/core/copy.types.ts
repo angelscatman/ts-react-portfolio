@@ -1,103 +1,61 @@
-import type { LocalizedText } from '@/types/core/content.types';
+import type { z } from 'zod';
 
-export type NavigationCopy = {
-  items: Array<{
-    to: string;
-    label: LocalizedText;
-    activePaths: string[];
-  }>;
-  languageToggle: {
-    toEnglish: LocalizedText;
-    toSpanish: LocalizedText;
-  };
-  themeToggle: {
-    toLight: LocalizedText;
-    toDark: LocalizedText;
-  };
-};
+import type {
+  aboutSchema,
+  blogSchema,
+  errorPageKindSchema,
+  errorPageSchema,
+  errorsSchema,
+  footerSchema,
+  localizedRecordSchema,
+  navigationSchema,
+  notificationSchema,
+  notificationsSchema,
+  resumeSchema,
+  seoPageSchema,
+  seoSchema,
+  workSchema,
+} from '@/domain/copy/copySchemas';
+import type { SocialLinkId } from '@/types/core/content.types';
+import type { CursorIcon } from '@/types/ui/cursor.types';
 
-export type FooterCopy = {
-  copyright: LocalizedText;
-};
+// ─── Navigation & layout ──────────────────────────────────────────────────────
 
-export type CursorCopy = Record<string, LocalizedText>;
+export type NavigationCopy = z.infer<typeof navigationSchema>;
+export type FooterCopy = z.infer<typeof footerSchema>;
 
-export type SeoPageCopy = {
-  title: LocalizedText;
-  description: LocalizedText;
-};
+// ─── Localization utilities ───────────────────────────────────────────────────
 
-export type SeoCopy = Record<'work' | 'blog' | 'about' | 'resume' | 'notFound' | 'projectNotFound' | 'articleNotFound', SeoPageCopy>;
+export type CursorCopy = z.infer<typeof localizedRecordSchema>;
 
-export type NotificationCopy = {
-  title: LocalizedText;
-  description: LocalizedText;
-};
+// ─── SEO ─────────────────────────────────────────────────────────────────────
 
-export type NotificationsCopy = Record<string, NotificationCopy>;
+export type SeoPageCopy = z.infer<typeof seoPageSchema>;
+export type SeoCopy = z.infer<typeof seoSchema>;
 
-export type ErrorPageKind = 'generic' | 'forbidden' | 'notFound' | 'content';
+// ─── Notifications ────────────────────────────────────────────────────────────
 
-export type ErrorPageCopy = {
-  code: string;
-  title: LocalizedText;
-  description: LocalizedText;
-  actionLabel: LocalizedText;
-  actionHref: string;
-};
+export type NotificationCopy = z.infer<typeof notificationSchema>;
+export type NotificationsCopy = z.infer<typeof notificationsSchema>;
 
+// ─── Error pages ─────────────────────────────────────────────────────────────
+
+export type ErrorPageKind = z.infer<typeof errorPageKindSchema>;
+export type ErrorPageCopy = z.infer<typeof errorPageSchema>;
+/** Non-partial record — all error kinds must be present in the data. */
 export type ErrorsCopy = Record<ErrorPageKind, ErrorPageCopy>;
 
-export type WorkCopy = {
-  heroTitle: LocalizedText;
-  greeting: LocalizedText;
-  emptyProjectsDescription: LocalizedText;
-  emptyProjectsTitle: LocalizedText;
-  name: string;
-  tagline: LocalizedText;
-};
+// ─── Page copy ────────────────────────────────────────────────────────────────
 
-export type AboutCopy = {
-  heading: LocalizedText;
-  hero: {
-    title: LocalizedText;
-    subtitle: LocalizedText;
-  };
-  intro: {
-    paragraphs: LocalizedText[];
-    bullets: LocalizedText[];
-    contactLine: {
-      prefix: LocalizedText;
-      suffix: LocalizedText;
-      links: Array<'github' | 'linkedin' | 'email'>;
-    };
-  };
-  gallerySections: Array<{
-    number: string;
-    label: LocalizedText;
-    images: Array<{
-      src: string;
-      alt: LocalizedText;
-      cursorText: LocalizedText;
-      cursorIcon?: 'eye' | 'arrow' | 'mail' | 'message' | 'github' | 'linkedin' | 'none';
-    }>;
-  }>;
-};
+export type WorkCopy = z.infer<typeof workSchema>;
 
+export type AboutCopy = z.infer<typeof aboutSchema>;
 
-export type BlogCopy = {
-  heading: LocalizedText;
-  emptyDescription: LocalizedText;
-  emptyTitle: LocalizedText;
-};
+export type BlogCopy = z.infer<typeof blogSchema>;
 
-export type ResumeCopy = {
-  name: LocalizedText;
-  heading: LocalizedText;
-  download: LocalizedText;
-  open: LocalizedText;
-  checking: LocalizedText;
-  viewerFallback: LocalizedText;
-  pendingLabel: LocalizedText;
-  pendingHint: LocalizedText;
-};
+export type ResumeCopy = z.infer<typeof resumeSchema>;
+
+// ─── Re-exports for convenience ───────────────────────────────────────────────
+
+// These are re-exported so call-sites don't need to import from two modules.
+export type { SocialLinkId, CursorIcon };

@@ -1,103 +1,64 @@
-import type { CursorIcon } from '@/types/ui/cursor.types';
-import type { Locale } from '@/types/ui/locale.types';
+import type { z } from 'zod';
 
-export type LocalizedText = Partial<Record<Locale, string>> & { es: string };
+import type {
+  articleContentSchema,
+  articleEntrySchema,
+  collectionManifestItemSchema,
+  contentBaseSchema,
+  contentKindSchema,
+  contentLinkSchema,
+  contentMetaSchema,
+  contentSectionSchema,
+  contentStatusSchema,
+  entryContentSectionSchema,
+  experienceItemSchema,
+  localizedEntryMetaSchema,
+  localizedTextSchema,
+  projectContentSchema,
+  projectEntrySchema,
+  siteContentSchema,
+  socialLinkIdSchema,
+  socialLinkSchema,
+} from '@/domain/content/contentSchemas';
 
-export type ContentKind = 'project' | 'article';
-export type ContentStatus = 'draft' | 'published';
+// ─── Primitives ───────────────────────────────────────────────────────────────
 
-export type ContentMeta = {
-  label: LocalizedText;
-  value: LocalizedText;
-};
+export type LocalizedText = z.infer<typeof localizedTextSchema>;
 
-export type LocalizedEntryMeta = {
-  label: string;
-  value: string;
-};
+export type ContentKind = z.infer<typeof contentKindSchema>;
+export type ContentStatus = z.infer<typeof contentStatusSchema>;
 
-export type EntryContentSection = {
-  eyebrow: string;
-  title?: string;
-  body: string[];
-  list?: string[];
-};
+// ─── Content building blocks ──────────────────────────────────────────────────
 
-export type EntryContentDocument = {
-  intro?: string[];
-  meta?: LocalizedEntryMeta[];
-  perspective?: string;
-  readingTime?: string;
-  role?: string;
-  sections: EntryContentSection[];
-  tags?: string[];
-  year?: string;
-};
+export type ContentLink = z.infer<typeof contentLinkSchema>;
+export type ContentMeta = z.infer<typeof contentMetaSchema>;
+export type ContentSection = z.infer<typeof contentSectionSchema>;
 
-export type ContentSection = {
-  id: string;
-  eyebrow: LocalizedText;
-  title?: LocalizedText;
-  body: LocalizedText[];
-};
+// ─── Content entries ──────────────────────────────────────────────────────────
 
-export type ContentLink = {
-  label: LocalizedText;
-  href: string;
-  type: 'internal' | 'external';
-};
+/** Base entry shape (without `kind` discriminant — use ProjectEntry or ArticleEntry when possible). */
+export type ContentEntry = z.infer<typeof contentBaseSchema> & { kind: ContentKind };
 
-export type ContentEntry = {
-  slug: string;
-  kind: ContentKind;
-  status: ContentStatus;
-  title: LocalizedText;
-  excerpt: LocalizedText;
-  coverImage: string;
-  coverAlt: LocalizedText;
-  publishedAt: string;
-  tags: LocalizedText[];
-  meta: ContentMeta[];
-  sections: ContentSection[];
-  links?: ContentLink[];
-};
+export type ProjectEntry = z.infer<typeof projectEntrySchema>;
+export type ArticleEntry = z.infer<typeof articleEntrySchema>;
+export type CollectionManifestItem = z.infer<typeof collectionManifestItemSchema>;
 
-export type ProjectEntry = ContentEntry & {
-  kind: 'project';
-  year: string;
-  role: LocalizedText;
-  destination: ContentLink;
-  featured?: boolean;
-};
+// ─── Entry content documents (per-locale, per-kind) ──────────────────────────
 
-export type ArticleEntry = ContentEntry & {
-  kind: 'article';
-  readingTime: LocalizedText;
-  perspective: LocalizedText;
-  destination: ContentLink;
-};
+export type LocalizedEntryMeta = z.infer<typeof localizedEntryMetaSchema>;
+export type EntryContentSection = z.infer<typeof entryContentSectionSchema>;
 
-export type CollectionManifestItem = Pick<ContentEntry, 'slug' | 'kind' | 'status' | 'title' | 'excerpt' | 'coverImage' | 'coverAlt' | 'publishedAt'> & {
-  destination: ContentLink;
-  featured?: boolean;
-};
+/** Discriminated union of article vs. project content documents. */
+export type EntryContentDocument =
+  | z.infer<typeof articleContentSchema>
+  | z.infer<typeof projectContentSchema>;
 
-export type ExperienceItem = {
-  year: string;
-  title: string;
-  role: LocalizedText;
-};
+// ─── Social & experience ──────────────────────────────────────────────────────
 
-export type SiteContent = {
-  brand: string;
-  defaultLocale: Locale;
-  titles: LocalizedText[];
-};
+export type SocialLinkId = z.infer<typeof socialLinkIdSchema>;
+export type SocialLink = z.infer<typeof socialLinkSchema>;
+export type ExperienceItem = z.infer<typeof experienceItemSchema>;
 
-export type SocialLink = {
-  id: 'github' | 'linkedin' | 'email';
-  label: string;
-  href: string;
-  ariaLabel: LocalizedText;
-  cursorIcon: CursorIcon;
-};
+// ─── Site ─────────────────────────────────────────────────────────────────────
+
+export type SiteContent = z.infer<typeof siteContentSchema>;

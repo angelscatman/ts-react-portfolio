@@ -3,13 +3,14 @@ import type { ReactNode } from 'react';
 import { SmartLink } from '@/components/ui/SmartLink';
 import { localize } from '@/lib/localize';
 import type { LocalizedText } from '@/types/core/content.types';
+import type { CursorIcon } from '@/types/ui/cursor.types';
 import type { Locale } from '@/types/ui/locale.types';
 import { cn } from '@/utils/cn';
 
 type ContentCardProps = {
   alt: LocalizedText;
   className?: string;
-  cursorIcon: 'arrow' | 'eye';
+  cursorIcon: Extract<CursorIcon, 'arrow' | 'eye'>;
   cursorText: string;
   excerpt: LocalizedText;
   href: string;

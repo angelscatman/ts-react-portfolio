@@ -1,9 +1,6 @@
-export type CvCatalogLanguage = 'EN' | 'ES';
+import type { z } from 'zod';
 
-export type CvCatalogEntry = {
-  id: string;
-  role: string;
-  language: CvCatalogLanguage;
-  url: string;
-  lastUpdated: string;
-};
+import type { cvCatalogEntrySchema, cvCatalogLanguageSchema } from '@/domain/cv/cvSchemas';
+
+export type CvCatalogLanguage = z.infer<typeof cvCatalogLanguageSchema>;
+export type CvCatalogEntry = z.infer<typeof cvCatalogEntrySchema>;

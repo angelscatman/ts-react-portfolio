@@ -1,31 +1,42 @@
 import { z } from 'zod';
 
-const localizedTextSchema = z.object({
+import { cursorIconValues } from '@/lib/cursorIconRegistry';
+
+// ─── Primitive schemas (exported so types/ can derive with z.infer) ───────────
+
+export const localizedTextSchema = z.object({
   es: z.string().min(1),
   en: z.string().min(1).optional(),
 });
 
-const contentLinkSchema = z.object({
+export const contentKindSchema = z.enum(['project', 'article']);
+export const contentStatusSchema = z.enum(['draft', 'published']);
+export const contentLinkTypeSchema = z.enum(['internal', 'external']);
+export const socialLinkIdSchema = z.enum(['github', 'linkedin', 'email']);
+
+// ─── Composite schemas ────────────────────────────────────────────────────────
+
+export const contentLinkSchema = z.object({
   label: localizedTextSchema,
   href: z.string().min(1),
-  type: z.enum(['internal', 'external']),
+  type: contentLinkTypeSchema,
 });
 
-const contentMetaSchema = z.object({
+export const contentMetaSchema = z.object({
   label: localizedTextSchema,
   value: localizedTextSchema,
 });
 
-const contentSectionSchema = z.object({
+export const contentSectionSchema = z.object({
   id: z.string().min(1),
   eyebrow: localizedTextSchema,
   title: localizedTextSchema.optional(),
   body: z.array(localizedTextSchema).min(1),
 });
 
-const contentBaseSchema = z.object({
+export const contentBaseSchema = z.object({
   slug: z.string().min(1),
-  status: z.enum(['draft', 'published']),
+  status: contentStatusSchema,
   title: localizedTextSchema,
   excerpt: localizedTextSchema,
   coverImage: z.string().min(1),
@@ -63,7 +74,7 @@ export const collectionManifestItemSchema = contentBaseSchema
     publishedAt: true,
   })
   .extend({
-    kind: z.enum(['project', 'article']),
+    kind: contentKindSchema,
     destination: contentLinkSchema,
     featured: z.boolean().optional(),
   });
@@ -77,29 +88,33 @@ export const siteContentSchema = z.object({
 });
 
 export const socialLinkSchema = z.object({
-  id: z.enum(['github', 'linkedin', 'email']),
+  id: socialLinkIdSchema,
   label: z.string().min(1),
   href: z.string().min(1),
   ariaLabel: localizedTextSchema,
-  cursorIcon: z.enum(['eye', 'arrow', 'mail', 'message', 'github', 'linkedin', 'none']),
+  cursorIcon: z.enum(cursorIconValues),
 });
 
 export const socialLinksSchema = z.array(socialLinkSchema);
 
-export const experienceItemsSchema = z.array(
-  z.object({
-    year: z.string().min(1),
-    title: z.string().min(1),
-    role: localizedTextSchema,
-  }),
-);
+// ─── Experience ───────────────────────────────────────────────────────────────
 
-const localizedEntryMetaSchema = z.object({
+export const experienceItemSchema = z.object({
+  year: z.string().min(1),
+  title: z.string().min(1),
+  role: localizedTextSchema,
+});
+
+export const experienceItemsSchema = z.array(experienceItemSchema);
+
+// ─── Entry content (per-locale document schemas) ──────────────────────────────
+
+export const localizedEntryMetaSchema = z.object({
   label: z.string().min(1),
   value: z.string().min(1),
 });
 
-const entryContentSectionSchema = z.object({
+export const entryContentSectionSchema = z.object({
   eyebrow: z.string().min(1),
   title: z.string().min(1).optional(),
   body: z.array(z.string().min(1)).min(1),
