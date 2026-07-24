@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+    <link rel="apple-touch-icon" href="/favicon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Default title & description (overridden per-page by useDocumentSeo) -->
+    <title>Angel Scatman</title>
+    <meta name="description" content="Angel Scatman editorial portfolio: projects, case studies, and product explorations." />
+    <meta name="author" content="Angel Scatman" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Base Open Graph (per-page values are updated by useDocumentSeo) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Angel Scatman" />
+    <meta property="og:title" content="Angel Scatman" />
+    <meta property="og:description" content="Angel Scatman editorial portfolio: projects, case studies, and product explorations." />
+
+    <!-- Twitter / X card base -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Angel Scatman" />
+    <meta name="twitter:description" content="Angel Scatman editorial portfolio: projects, case studies, and product explorations." />
+
+    <!-- JSON-LD: Person + WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://angelscatman.dev/#person",
+          "name": "Angel Scatman",
+          "jobTitle": "Software Developer & Product Designer",
+          "url": "https://angelscatman.dev",
+          "email": "angel.cecilio.dev@gmail.com",
+          "sameAs": [
+            "https://github.com/angelscatman",
+            "https://www.linkedin.com/in/angel-scatman/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://angelscatman.dev/#website",
+          "name": "Angel Scatman",
+          "url": "https://angelscatman.dev",
+          "author": { "@id": "https://angelscatman.dev/#person" },
+          "inLanguage": ["es", "en"]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <script>
+      (() => {
+        const theme = window.localStorage.getItem('portfolio-theme');
+
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
