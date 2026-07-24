@@ -1,17 +1,8 @@
-import { ArrowUpRight, Eye, Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 
+import { cursorIconRegistry } from '@/lib/cursorIconRegistry';
 import type { CursorIcon, CursorState } from '@/types/ui/cursor.types';
 import { cn } from '@/utils/cn';
-
-const cursorIcons: Partial<Record<CursorIcon, React.ComponentType<{ className?: string }>>> = {
-  arrow: ArrowUpRight,
-  eye: Eye,
-  github: Github,
-  linkedin: Linkedin,
-  mail: Mail,
-  message: MessageCircle,
-};
 
 type CustomCursorProps = {
   cursorState: CursorState;
@@ -22,7 +13,7 @@ export function CustomCursor({ cursorState, mousePosition }: CustomCursorProps) 
   const visualVariant = cursorState.selecting ? 'default' : cursorState.variant;
   const shouldBlend = cursorState.selecting || visualVariant === 'pill' ? false : cursorState.blend;
   const isPrecisionMode = cursorState.selecting || cursorState.reading;
-  const CursorGlyph = cursorState.icon === 'none' ? null : cursorIcons[cursorState.icon];
+  const CursorGlyph = cursorState.icon === 'none' ? null : cursorIconRegistry[cursorState.icon];
 
   return (
     <motion.div

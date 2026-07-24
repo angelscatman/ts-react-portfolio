@@ -1,5 +1,7 @@
+import type { CursorIconKey } from '@/lib/cursorIconRegistry';
+
 export type CursorVariant = 'default' | 'pill' | 'hover' | 'hoverLarge';
-export type CursorIcon = 'eye' | 'arrow' | 'mail' | 'message' | 'github' | 'linkedin' | 'none';
+export type CursorIcon = CursorIconKey | 'none';
 
 export type CursorState = {
   variant: CursorVariant;
