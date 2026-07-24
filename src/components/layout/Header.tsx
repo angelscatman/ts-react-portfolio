@@ -1,12 +1,12 @@
 import { NavLink, useLocation } from 'react-router-dom';
 
+import { LanguageToggle } from '@/components/ui/LanguageToggle';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { useAppContext } from '@/hooks/app/useAppContext';
 import { useContentService, useCopyService } from '@/hooks/app/useAppServices';
 import { useRotatingIndex } from '@/hooks/ui/useRotatingIndex';
 import { localize } from '@/lib/localize';
 import { cn } from '@/utils/cn';
-import { LanguageToggle } from '@/components/ui/LanguageToggle';
-import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 export function Header() {
   const location = useLocation();

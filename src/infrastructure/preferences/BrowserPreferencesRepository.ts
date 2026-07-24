@@ -1,7 +1,7 @@
 import type { PreferencesRepository } from '@/domain/preferences/PreferencesRepository';
+import type { StorageAdapter } from '@/infrastructure/storage/StorageAdapter';
 import type { Locale } from '@/types/ui/locale.types';
 import type { ThemeMode } from '@/types/ui/preferences.types';
-import type { StorageAdapter } from '@/infrastructure/storage/StorageAdapter';
 
 const localeStorageKey = 'portfolio-locale';
 const themeStorageKey = 'portfolio-theme';

@@ -1,6 +1,7 @@
 import { type ReactNode, useState } from 'react';
 import { sileo, Toaster } from 'sileo';
 
+import { AppContext } from '@/app/AppContext';
 import { useAppServices } from '@/hooks/app/useAppServices';
 import { useMousePosition } from '@/hooks/ui/useMousePosition';
 import { usePortfolioCursor } from '@/hooks/ui/usePortfolioCursor';
@@ -8,7 +9,6 @@ import { useTheme } from '@/hooks/ui/useTheme';
 import { localize } from '@/lib/localize';
 import type { NotificationType } from '@/types/core/app.types';
 import type { Locale } from '@/types/ui/locale.types';
-import { AppContext } from '@/app/AppContext';
 
 type AppProviderProps = {
   children: ReactNode;

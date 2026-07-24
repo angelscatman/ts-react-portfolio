@@ -1,8 +1,8 @@
 import { ChevronDown } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
-import { cn } from '@/utils/cn';
 import { Button } from '@/components/ui/Button';
+import { cn } from '@/utils/cn';
 
 type SelectOption = {
   label: string;

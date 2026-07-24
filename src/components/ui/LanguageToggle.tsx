@@ -1,6 +1,6 @@
-import type { Locale } from '@/types/ui/locale.types';
 import { Button } from '@/components/ui/Button';
 import { LocaleFlag } from '@/components/ui/LocaleFlag';
+import type { Locale } from '@/types/ui/locale.types';
 
 type LanguageToggleProps = {
   ariaLabel: string;

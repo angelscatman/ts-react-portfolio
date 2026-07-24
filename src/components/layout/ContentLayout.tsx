@@ -2,12 +2,12 @@ import { ArrowLeft } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Section } from '@/components/layout/Section';
 import { localize } from '@/lib/localize';
 import type { EntryContentDocument, LocalizedText } from '@/types/core/content.types';
 import type { CursorHandlers } from '@/types/ui/cursor.types';
 import type { Locale } from '@/types/ui/locale.types';
 import { cn } from '@/utils/cn';
-import { Section } from '@/components/layout/Section';
 
 export type MarkdownContentEntry = {
   content?: EntryContentDocument | null;

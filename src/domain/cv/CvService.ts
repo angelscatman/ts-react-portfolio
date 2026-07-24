@@ -1,5 +1,5 @@
-import type { CvCatalogLanguage } from '@/types/cv.types';
 import type { CvRepository } from '@/domain/cv/CvRepository';
+import type { CvCatalogLanguage } from '@/types/cv.types';
 
 export class CvService {
   constructor(private readonly repository: CvRepository) {}

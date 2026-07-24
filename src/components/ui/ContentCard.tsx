@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react';
 
+import { SmartLink } from '@/components/ui/SmartLink';
 import { localize } from '@/lib/localize';
 import type { LocalizedText } from '@/types/core/content.types';
 import type { Locale } from '@/types/ui/locale.types';
 import { cn } from '@/utils/cn';
-import { SmartLink } from '@/components/ui/SmartLink';
 
 type ContentCardProps = {
   alt: LocalizedText;

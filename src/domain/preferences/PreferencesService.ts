@@ -1,6 +1,6 @@
+import type { PreferencesRepository } from '@/domain/preferences/PreferencesRepository';
 import type { Locale } from '@/types/ui/locale.types';
 import type { ThemeMode } from '@/types/ui/preferences.types';
-import type { PreferencesRepository } from '@/domain/preferences/PreferencesRepository';
 
 export class PreferencesService {
   constructor(private readonly repository: PreferencesRepository) {}
