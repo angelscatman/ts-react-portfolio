@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui;
+  --font-serif: "DM Serif Display", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-canvas: var(--theme-canvas);
+  --color-ink: var(--theme-ink);
+  --color-orange: var(--theme-orange);
+  --color-lamp: var(--theme-lamp);
+  --color-surface-raised: var(--theme-surface-raised);
+  --color-cursor-ink: #101010;
+  --color-info: #5277B0;
+  --color-success: #5A9E6F;
+  --color-warning: #FF6B1A;
+  --color-danger: #C44E52;
+
+  --text-meta: clamp(0.75rem, 0.9vw, 0.875rem);
+  --text-body-sm: clamp(0.875rem, 1.1vw, 1.125rem);
+  --text-body-lg: clamp(1rem, 1.3vw, 1.5rem);
+  --text-body-xl: clamp(1.125rem, 1.8vw, 1.75rem);
+  --text-title-section: clamp(1.6rem, 2.4vw, 2rem);
+  --text-title-page: clamp(2.25rem, 5vw, 3.75rem);
+  --text-display-page: clamp(3.25rem, 8vw, 6.5rem);
+  --text-display-name: clamp(3.75rem, 8vw, 7rem);
+  --text-display-hero: clamp(4.25rem, 11vw, 9.5rem);
+
+  --tracking-meta: 0.14em;
+  --tracking-tight: -0.055em;
+  --leading-tight: 1.1;
+  --leading-none: 0.85;
+
+  --spacing-page-x: clamp(1rem, 3vw, 2.5rem);
+  --spacing-page-y: clamp(0.875rem, 2vw, 1.5rem);
+  --spacing-stack-xs: 0.75rem;
+  --spacing-stack-sm: 1.5rem;
+  --spacing-stack-md: 2rem;
+  --spacing-stack-lg: 3rem;
+  --spacing-stack-xl: 4rem;
+  --spacing-section-sm: clamp(2.25rem, 5vw, 3.5rem);
+  --spacing-section-md: clamp(3rem, 6vw, 4.75rem);
+  --spacing-section-lg: clamp(4rem, 8vw, 6.5rem);
+  --spacing-layout-sm: clamp(1.25rem, 3vw, 2.5rem);
+  --spacing-layout-md: clamp(1.75rem, 4vw, 3.5rem);
+  --spacing-layout-lg: clamp(2.5rem, 6vw, 5rem);
+
+  --container-reading: 44rem;
+  --container-content: 64rem;
+  --container-wide: 76rem;
+
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 700ms;
+
+  --shadow-soft: 0 14px 40px rgb(16 16 16 / 0.08);
+  --shadow-card: 0 20px 60px rgb(16 16 16 / 0.12);
+  --shadow-cursor: 0 8px 24px rgb(16 16 16 / 0.28);
+}
+
+:root {
+  --theme-canvas: #F7F5EF;
+  --theme-ink: #101010;
+  --theme-orange: #FF6B1A;
+  --theme-lamp: #FFD86A;
+  --theme-surface-raised: #E5E3DC;
+}
+
+.dark {
+  --theme-canvas: #101010;
+  --theme-ink: #F7F5EF;
+  --theme-orange: #FF6B1A;
+  --theme-lamp: #FF994D;
+  --theme-surface-raised: #1C1C1C;
+}
+
+body {
+  background-color: var(--theme-canvas);
+  color: var(--theme-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+  transition: background-color var(--duration-base), color var(--duration-base);
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--theme-orange) 24%, transparent);
+  color: var(--theme-orange);
+}
+
+.dark ::selection {
+  background-color: color-mix(in srgb, var(--theme-lamp) 28%, transparent);
+  color: var(--theme-lamp);
+}
+
+a, button, input, textarea, select {
+  cursor: none;
+}
