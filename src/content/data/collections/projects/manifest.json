@@ -1,25 +1,27 @@
 [
   {
-    "slug": "bitala-platform",
+    "slug": "fulfillment-platform",
     "featured": true,
     "kind": "project",
     "status": "draft",
-    "title": { "es": "Bitala Platform", "en": "Bitala Platform" },
-    "excerpt": { "es": "Diseno de producto y desarrollo fullstack para una plataforma SaaS.", "en": "Product design and fullstack development for a SaaS platform." },
-    "coverImage": "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?q=80&w=2070&auto=format&fit=crop",
-    "coverAlt": { "es": "Vista abstracta de interfaz digital", "en": "Abstract digital interface view" },
+    "title": { 
+      "es": "Plataforma de Orquestación y Trazabilidad Logística", 
+      "en": "Logistics Orchestration & Traceability Platform" 
+    },
+    "excerpt": { 
+      "es": "Diseño de producto y desarrollo full-stack de una arquitectura de microservicios en Node.js para trazabilidad en tiempo real.", 
+      "en": "Product design and full-stack development of a Node.js microservices architecture for real-time traceability." 
+    },
+    "coverImage": "/images/projects/fulfillment-platform/cover.gif",
+    "coverAlt": { 
+      "es": "Vista minimalista del titulo y empresa del proyecto de software", 
+      "en": "Minimalist view of the title and company of the software project" 
+    },
     "publishedAt": "2026-05-01",
-    "destination": { "label": { "es": "Caso de estudio", "en": "Case study" }, "href": "/projects/bitala-platform", "type": "internal" }
-  },
-  {
-    "slug": "creative-studio",
-    "kind": "project",
-    "status": "draft",
-    "title": { "es": "Creative Studio", "en": "Creative Studio" },
-    "excerpt": { "es": "Frontend experimental para una identidad visual sobria y expresiva.", "en": "Experimental frontend for a sober and expressive visual identity." },
-    "coverImage": "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1964&auto=format&fit=crop",
-    "coverAlt": { "es": "Mesa de trabajo creativa", "en": "Creative work desk" },
-    "publishedAt": "2026-02-01",
-    "destination": { "label": { "es": "Visitar web", "en": "Visit website" }, "href": "https://example.com", "type": "external" }
+    "destination": { 
+      "label": { "es": "Caso de estudio", "en": "Case study" }, 
+      "href": "/projects/fulfillment-platform", 
+      "type": "internal" 
+    }
   }
 ]

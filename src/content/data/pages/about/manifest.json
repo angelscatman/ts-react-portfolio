@@ -57,7 +57,7 @@
       },
       "images": [
         {
-          "src": "/about/01/keyboard.jpeg",
+          "src": "images/about/01/keyboard.jpeg",
           "alt": {
             "es": "Teclado mecánico sobre el escritorio",
             "en": "Custom mechanical keyboard on my desk"
@@ -66,7 +66,7 @@
           "cursorIcon": "none"
         },
 {
-          "src": "/about/01/me.jpeg",
+          "src": "images/about/01/me.jpeg",
           "alt": {
             "es": "Angel sosteniendo un diploma de ética profesional",
             "en": "Angel holding a professional ethics diploma"
@@ -75,7 +75,7 @@
           "cursorIcon": "camera"
         },
         {
-          "src": "/about/01/see-no-evil-apple-music.gif",
+          "src": "images/about/01/see-no-evil-apple-music.gif",
           "alt": {
             "es": "Captura de letra en Apple Music con 'see no evil - destroy lonely'",
             "en": "Apple Music lyrics screenshot featuring 'see no evil - destroy lonely'"
