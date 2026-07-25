@@ -14,6 +14,14 @@ import type {
   experienceItemSchema,
   localizedEntryMetaSchema,
   localizedTextSchema,
+  portableTextBlockSchema,
+  portableTextColumnsSchema,
+  portableTextGridSchema,
+  portableTextHeadingSchema,
+  portableTextImageSchema,
+  portableTextParagraphSchema,
+  portableTextQuoteSchema,
+  portableTextStyleSchema,
   projectContentSchema,
   projectEntrySchema,
   siteContentSchema,
@@ -47,6 +55,14 @@ export type CollectionManifestItem = z.infer<typeof collectionManifestItemSchema
 
 export type LocalizedEntryMeta = z.infer<typeof localizedEntryMetaSchema>;
 export type EntryContentSection = z.infer<typeof entryContentSectionSchema>;
+export type PortableTextParagraph = z.infer<typeof portableTextParagraphSchema>;
+export type PortableTextHeading = z.infer<typeof portableTextHeadingSchema>;
+export type PortableTextImage = z.infer<typeof portableTextImageSchema>;
+export type PortableTextQuote = z.infer<typeof portableTextQuoteSchema>;
+export type PortableTextColumns = z.infer<typeof portableTextColumnsSchema>;
+export type PortableTextGrid = z.infer<typeof portableTextGridSchema>;
+export type PortableTextBlock = z.infer<typeof portableTextBlockSchema>;
+export type PortableTextStyle = z.infer<typeof portableTextStyleSchema>;
 
 /** Discriminated union of article vs. project content documents. */
 export type EntryContentDocument =
