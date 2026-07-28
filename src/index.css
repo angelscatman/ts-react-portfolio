@@ -1,10 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Lamrata";
+  src: url("/fonts/Lamrata.otf") format("opentype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
 
 @theme {
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui;
   --font-display: "Space Grotesk", ui-sans-serif, system-ui;
-  --font-serif: "DM Serif Display", ui-serif, Georgia, serif;
+  --font-serif: "Lamrata", ui-serif, Georgia, serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
   --color-canvas: var(--theme-canvas);

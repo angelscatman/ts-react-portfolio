@@ -20,7 +20,7 @@ export function Header() {
   return (
     <header className="grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center gap-x-4 gap-y-3 pb-4 border-b border-ink/10 mb-section-sm">
       <div className="flex min-w-0 items-baseline gap-3">
-        <NavLink to="/" className="font-display font-bold text-lg md:text-xl tracking-tight hover:text-orange transition-colors cursor-none shrink-0" onMouseEnter={onEnterHoverLarge} onMouseLeave={onLeaveCursor}>
+        <NavLink to="/" className="font-serif font-normal text-lg md:text-xl tracking-normal hover:text-orange transition-colors cursor-none shrink-0" onMouseEnter={onEnterHoverLarge} onMouseLeave={onLeaveCursor}>
           {siteContent.brand}
         </NavLink>
         <div className="font-mono text-meta text-ink/60 transition-opacity duration-base hidden lg:block w-72 uppercase tracking-meta truncate">
