@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react';
 
 import { articleContentSchema, projectContentSchema } from '@/domain/content/contentSchemas';
-import type { EntryContentDocument } from '@/types/core/content.types';
+import type { ArticleContentDocument, EntryContentDocument, ProjectContentDocument } from '@/types/core/content.types';
 import type { Locale } from '@/types/ui/locale.types';
 
-const articleModules = import.meta.glob('../../content/data/collections/articles/entries/*/content.*.json', { import: 'default' });
-const projectModules = import.meta.glob('../../content/data/collections/projects/entries/*/content.*.json', { import: 'default' });
+const articleModules = import.meta.glob<unknown>('../../content/data/collections/articles/entries/*/content.*.json', { import: 'default' });
+const projectModules = import.meta.glob<unknown>('../../content/data/collections/projects/entries/*/content.*.json', { import: 'default' });
 
-type EntryContentResult = {
-  content: EntryContentDocument | null;
+type EntryContentResult<TContent extends EntryContentDocument> = {
+  content: TContent | null;
   error: Error | null;
   isLoading: boolean;
 };
 
-export function useEntryContent(kind: 'article' | 'project', slug: string | undefined, locale: Locale): EntryContentResult {
+export function useEntryContent(kind: 'article', slug: string | undefined, locale: Locale): EntryContentResult<ArticleContentDocument>;
+export function useEntryContent(kind: 'project', slug: string | undefined, locale: Locale): EntryContentResult<ProjectContentDocument>;
+export function useEntryContent(kind: 'article' | 'project', slug: string | undefined, locale: Locale): EntryContentResult<EntryContentDocument> {
   const [content, setContent] = useState<EntryContentDocument | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -29,7 +31,7 @@ export function useEntryContent(kind: 'article' | 'project', slug: string | unde
 
       const modules = kind === 'article' ? articleModules : projectModules;
       const path = `../../content/data/collections/${kind}s/entries/${slug}/content.${locale}.json`;
-      const loader = modules[path] as (() => Promise<unknown>) | undefined;
+      const loader = modules[path];
 
       if (!loader) {
         setError(new Error(`Content file not found for ${path}`));

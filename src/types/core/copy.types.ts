@@ -5,7 +5,6 @@ import type {
   blogSchema,
   errorPageKindSchema,
   errorPageSchema,
-  errorsSchema,
   footerSchema,
   localizedRecordSchema,
   navigationSchema,
@@ -58,4 +57,4 @@ export type ResumeCopy = z.infer<typeof resumeSchema>;
 // ─── Re-exports for convenience ───────────────────────────────────────────────
 
 // These are re-exported so call-sites don't need to import from two modules.
-export type { SocialLinkId, CursorIcon };
+export type { CursorIcon, SocialLinkId };

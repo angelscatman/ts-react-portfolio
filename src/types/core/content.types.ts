@@ -65,9 +65,11 @@ export type PortableTextBlock = z.infer<typeof portableTextBlockSchema>;
 export type PortableTextStyle = z.infer<typeof portableTextStyleSchema>;
 
 /** Discriminated union of article vs. project content documents. */
+export type ArticleContentDocument = z.infer<typeof articleContentSchema>;
+export type ProjectContentDocument = z.infer<typeof projectContentSchema>;
 export type EntryContentDocument =
-  | z.infer<typeof articleContentSchema>
-  | z.infer<typeof projectContentSchema>;
+  | ArticleContentDocument
+  | ProjectContentDocument;
 
 // ─── Social & experience ──────────────────────────────────────────────────────
 
