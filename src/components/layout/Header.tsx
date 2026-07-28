@@ -28,7 +28,7 @@ export function Header() {
         </div>
       </div>
 
-      <nav className="col-span-2 row-start-2 flex items-center justify-between md:col-span-1 md:row-start-auto md:justify-center md:gap-8 font-mono text-meta tracking-meta uppercase">
+      <nav aria-label="Main navigation" className="col-span-2 row-start-2 flex items-center justify-between md:col-span-1 md:row-start-auto md:justify-center md:gap-8 font-mono text-meta tracking-meta uppercase">
         {navigation.items.map((item) => {
           const isActive = item.activePaths.some((path) => location.pathname === path || (path !== '/' && location.pathname.startsWith(path)));
 

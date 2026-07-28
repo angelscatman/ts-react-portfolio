@@ -36,6 +36,7 @@ export function AboutPage() {
   useDocumentSeo({
     title: localize(seoCopy.about.title, locale),
     description: localize(seoCopy.about.description, locale),
+    locale,
   });
 
   return (
@@ -107,6 +108,8 @@ export function AboutPage() {
                       <img
                         src={gallerySection.images[0].src}
                         alt={localize(gallerySection.images[0].alt, locale)}
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-slow group-hover:scale-105"
                       />
                     </div>
@@ -124,6 +127,8 @@ export function AboutPage() {
                       <img
                         src={gallerySection.images[1].src}
                         alt={localize(gallerySection.images[1].alt, locale)}
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-slow group-hover:scale-105"
                       />
                     </div>
@@ -141,6 +146,8 @@ export function AboutPage() {
                       <img
                         src={gallerySection.images[2].src}
                         alt={localize(gallerySection.images[2].alt, locale)}
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-slow group-hover:scale-105"
                       />
                     </div>

@@ -21,6 +21,7 @@ export function BlogPage() {
   useDocumentSeo({
     title: localize(seoCopy.blog.title, locale),
     description: localize(seoCopy.blog.description, locale),
+    locale,
   });
 
   return (
@@ -29,35 +30,37 @@ export function BlogPage() {
       {articles.length === 0 ? (
         <StatusState title={localize(blogCopy.emptyTitle, locale)} description={localize(blogCopy.emptyDescription, locale)} />
       ) : (
-        <Section className="w-full grid grid-cols-1 md:grid-cols-2 gap-layout-md">
+        <Section className="w-full" aria-label="Articles">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-layout-md">
           {articles.map((article, index) => {
             const isExternal = article.destination.type === 'external';
             const href = isExternal ? article.destination.href : `/articles/${article.slug}`;
             const cursorText = isExternal ? localize(cursorCopy.openNote, locale) : localize(cursorCopy.readArticle, locale);
 
             return (
-              <ContentCard
-                key={article.slug}
-                alt={article.coverAlt}
-                className={index === 1 ? 'md:mt-section-sm' : undefined}
-                cursorIcon="arrow"
-                cursorText={cursorText}
-                excerpt={article.excerpt}
-                href={href}
-                image={article.coverImage}
-                isExternal={isExternal}
-                locale={locale}
-                meta={(
-                  <Pill tone="muted" className="shrink-0">
-                    {formatContentDate(article.publishedAt, locale)}
-                  </Pill>
-                )}
-                title={article.title}
-                titleAs="h2"
-                titleClassName="text-xl md:text-2xl"
-              />
+              <li key={article.slug} className={index === 1 ? 'md:mt-section-sm' : undefined}>
+                <ContentCard
+                  alt={article.coverAlt}
+                  cursorIcon="arrow"
+                  cursorText={cursorText}
+                  excerpt={article.excerpt}
+                  href={href}
+                  image={article.coverImage}
+                  isExternal={isExternal}
+                  locale={locale}
+                  meta={(
+                    <Pill tone="muted" className="shrink-0">
+                      {formatContentDate(article.publishedAt, locale)}
+                    </Pill>
+                  )}
+                  title={article.title}
+                  titleAs="h2"
+                  titleClassName="text-xl md:text-2xl"
+                />
+              </li>
             );
           })}
+          </ul>
         </Section>
       )}
     </Section>

@@ -38,6 +38,7 @@ export function ResumePage() {
   useDocumentSeo({
     title: localize(seoCopy.resume.title, locale),
     description: localize(seoCopy.resume.description, locale),
+    locale,
   });
 
   useEffect(() => {
@@ -94,7 +95,7 @@ export function ResumePage() {
         )}
 
         {catalogStatus === 'ready' && selectedCv && (
-          <object data={selectedCv.url} type="application/pdf" className="w-full h-[72vh]">
+          <object data={selectedCv.url} type="application/pdf" title={selectedCv.role} className="w-full h-[72vh]">
             <div className="p-layout-sm font-sans text-ink/70">
               {localize(resumeCopy.viewerFallback, locale)}
             </div>

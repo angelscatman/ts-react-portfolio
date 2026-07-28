@@ -1,13 +1,12 @@
-import type { ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 import { cn } from '@/utils/cn';
 
-type SectionProps = {
+type SectionProps = HTMLAttributes<HTMLElement> & {
   children: ReactNode;
-  className?: string;
   as?: 'section' | 'div';
 };
 
-export function Section({ children, className = '', as: Component = 'section' }: SectionProps) {
-  return <Component className={cn(className)}>{children}</Component>;
+export function Section({ children, className = '', as: Component = 'section', ...props }: SectionProps) {
+  return <Component className={cn(className)} {...props}>{children}</Component>;
 }

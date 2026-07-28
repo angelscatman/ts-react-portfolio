@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 
 import { cursorIconRegistry } from '@/lib/cursorIconRegistry';
-import type { CursorIcon, CursorState } from '@/types/ui/cursor.types';
+import type { CursorState } from '@/types/ui/cursor.types';
 import { cn } from '@/utils/cn';
 
 type CustomCursorProps = {

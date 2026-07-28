@@ -31,11 +31,14 @@ export function AppLayout() {
   }, [resetCursor]);
 
   return (
-      <div className="min-h-screen bg-canvas text-ink px-page-x py-page-y font-sans flex flex-col overflow-x-hidden">
+    <div className="min-h-screen bg-canvas text-ink px-page-x py-page-y font-sans flex flex-col overflow-x-hidden">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <CustomCursor cursorState={cursorState} mousePosition={mousePosition} />
       <Header />
 
-      <main className="flex-1 relative w-full flex flex-col">
+      <main id="main-content" className="flex-1 relative w-full flex flex-col" tabIndex={-1}>
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

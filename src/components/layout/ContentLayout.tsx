@@ -164,7 +164,7 @@ function renderBlock(block: PortableTextBlock, sectionKey: string) {
     case 'image':
       return (
         <figure key={`${sectionKey}-image-${block.src}`} className={cn('flex flex-col gap-3 mt-stack-sm', getSpacingClasses(block.style?.spacing), getLayoutClasses(block.style?.layout))}>
-          <img src={block.src} alt={block.alt} className="w-full aspect-[16/10] object-cover bg-ink/5 shadow-soft" />
+          <img src={block.src} alt={block.alt} loading="lazy" decoding="async" className="w-full aspect-[16/10] object-cover bg-ink/5 shadow-soft" />
           {block.caption ? <figcaption className="font-mono text-meta uppercase tracking-meta text-ink/40">{block.caption}</figcaption> : null}
         </figure>
       );
@@ -179,7 +179,7 @@ function renderBlock(block: PortableTextBlock, sectionKey: string) {
         </figure>
       );
 
-    case 'columns':
+    case 'columns': {
       const columnsClass = {
         2: 'grid-cols-1 md:grid-cols-2',
         3: 'grid-cols-1 md:grid-cols-3',
@@ -197,6 +197,7 @@ function renderBlock(block: PortableTextBlock, sectionKey: string) {
           ))}
         </div>
       );
+    }
 
     case 'grid':
       return (
@@ -262,7 +263,7 @@ export function ContentLayout({ entry, locale, backTo, backLabel, children, onEn
         </Link>
 
         {sidebarLinks.length > 0 && (
-          <nav className="hidden md:flex flex-col gap-4 font-sans text-sm">
+          <nav aria-label="Table of contents" className="hidden md:flex flex-col gap-4 font-sans text-sm">
             {sidebarLinks.map((link) => (
               <a
                 key={link.href}
@@ -278,9 +279,9 @@ export function ContentLayout({ entry, locale, backTo, backLabel, children, onEn
         )}
       </aside>
 
-      <article className="flex flex-col w-full min-w-0">
+      <article className="flex flex-col w-full min-w-0" aria-labelledby="content-title">
         {entry.isLoading && (
-          <div className="animate-pulse flex space-x-4">
+          <div role="status" aria-live="polite" className="animate-pulse flex space-x-4">
             <div className="h-4 bg-ink/20 rounded w-3/4"></div>
           </div>
         )}
@@ -289,8 +290,8 @@ export function ContentLayout({ entry, locale, backTo, backLabel, children, onEn
           <>
             {content?.tags && content.tags.length > 0 ? <p className="font-mono text-meta uppercase tracking-meta text-ink/50 mb-stack-md">{content.tags.join(' • ')}</p> : null}
 
-            <h1 className="text-title-page font-serif font-normal tracking-normal leading-tight mb-stack-lg">{localize(entry.title, locale)}</h1>
-            <img src={entry.coverImage} alt={localize(entry.coverAlt, locale)} className="w-full aspect-[16/10] object-cover mb-section-md bg-ink/5 shadow-soft" />
+            <h1 id="content-title" className="text-title-page font-serif font-normal tracking-normal leading-tight mb-stack-lg">{localize(entry.title, locale)}</h1>
+            <img src={entry.coverImage} alt={localize(entry.coverAlt, locale)} fetchPriority="high" decoding="async" className="w-full aspect-[16/10] object-cover mb-section-md bg-ink/5 shadow-soft" />
 
             {content?.meta && content.meta.length > 0 && (
               <div className="grid grid-cols-2 md:grid-cols-4 gap-layout-sm border-b border-ink/10 pb-section-md mb-section-md">

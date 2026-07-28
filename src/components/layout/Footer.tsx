@@ -19,12 +19,12 @@ export function Footer() {
   return (
     <footer className="mt-24 md:mt-32 border-t border-ink/10 pt-8 pb-4 flex flex-col md:flex-row justify-between items-center gap-6">
       <div className="font-mono text-meta uppercase tracking-meta text-ink/60">{localize(footer.copyright, locale)}</div>
-      <div className="flex items-center gap-6">
+      <nav aria-label="Social links" className="flex items-center gap-6">
         {socialLinks.map((link) => {
           const Icon = icons[link.id];
           const isExternal = link.href.startsWith('http');
 
-            return (
+          return (
             <a
               key={link.id}
               href={link.href}
@@ -35,11 +35,11 @@ export function Footer() {
               onMouseEnter={onEnterHoverLarge}
               onMouseLeave={onLeaveCursor}
             >
-              <Icon className="w-5 h-5" />
+              <Icon aria-hidden="true" className="w-5 h-5" />
             </a>
           );
         })}
-      </div>
+      </nav>
     </footer>
   );
 }

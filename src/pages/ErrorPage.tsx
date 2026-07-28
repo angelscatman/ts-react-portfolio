@@ -20,6 +20,8 @@ export function ErrorPage({ kind = 'generic' }: ErrorPageProps) {
   useDocumentSeo({
     title: localize(error.title, locale),
     description: localize(error.description, locale),
+    locale,
+    robots: 'noindex, nofollow',
   });
 
   return (
