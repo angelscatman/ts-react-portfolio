@@ -1,0 +1,21 @@
+{
+  "name": "Angel Scatman",
+  "short_name": "Angel",
+  "description": "Angel Scatman editorial portfolio: projects, case studies, and product explorations.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
