@@ -16,12 +16,20 @@
     "allowJs": true,
     "jsx": "react-jsx",
     "paths": {
+      "@portfolio/content-contract": [
+        "./packages/content-contract/src/index.ts"
+      ],
       "@/*": [
-        "./src/*"
+        "./apps/web/src/*"
       ]
     },
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "noEmit": true
-  }
+  },
+  "exclude": [
+    "**/.next/**",
+    "dist",
+    "node_modules"
+  ]
 }

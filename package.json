@@ -3,10 +3,19 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "vite --config apps/web/vite.config.ts --port=3000 --host=0.0.0.0",
+    "dev:cms": "npm run dev -w @portfolio/cms",
+    "build": "vite build --config apps/web/vite.config.ts",
+    "build:cms": "npm run build -w @portfolio/cms",
+    "generate:importmap:cms": "npm run generate:importmap -w @portfolio/cms",
+    "migrate:cms": "npm run migrate -w @portfolio/cms",
+    "migrate:create:cms": "npm run migrate:create -w @portfolio/cms",
+    "preview": "vite preview --config apps/web/vite.config.ts",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . && tsc --noEmit"
