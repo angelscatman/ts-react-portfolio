@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "fulfillment-platform",
+    "featured": true,
+    "kind": "project",
+    "status": "published",
+    "title": { 
+      "es": "Plataforma de Orquestación y Trazabilidad Logística", 
+      "en": "Logistics Orchestration & Traceability Platform" 
+    },
+    "excerpt": { 
+      "es": "Diseño de producto y desarrollo full-stack de una arquitectura de microservicios en Node.js para trazabilidad en tiempo real.", 
+      "en": "Product design and full-stack development of a Node.js microservices architecture for real-time traceability." 
+    },
+    "coverImage": "/images/projects/fulfillment-platform/cover.gif",
+    "coverAlt": { 
+      "es": "Vista minimalista del titulo y empresa del proyecto de software", 
+      "en": "Minimalist view of the title and company of the software project" 
+    },
+    "publishedAt": "2026-05-01",
+    "destination": { 
+      "label": { "es": "Caso de estudio", "en": "Case study" }, 
+      "href": "/projects/fulfillment-platform", 
+      "type": "internal" 
+    }
+  }
+]

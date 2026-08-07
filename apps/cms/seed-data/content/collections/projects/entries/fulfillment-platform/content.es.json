@@ -1,0 +1,193 @@
+{
+  "tags": [
+    "Bitala",
+    "2025"
+  ],
+  "year": "2025",
+  "role": "Desarrollador fullstack \nDesarrollador de producto",
+  "meta": [
+    {
+      "label": "Rol",
+      "value": "Desarrollador fullstack \nDesarrollador de producto"
+    },
+    {
+      "label": "Duración",
+      "value": "Abril - Septiembre 2025"
+    },
+    {
+      "label": "Equipo",
+      "value": "1 Líder tecnológico \n3 Ingenieros de software"
+    },
+    {
+      "label": "Habilidades",
+      "value": "Investigación de usuario \nDiseño de producto \nIngeniería backend"
+    }
+  ],
+  "sections": [
+    {
+      "eyebrow": "Resumen",
+      "title": "¿Cómo orquestar y trazar un proceso logístico sin puntos ciegos?",
+      "body": [
+        "El proceso logístico operaba con puntos ciegos en el proceso de venta por mayoreo. Si bien existía un sistema básico para la recepción inicial de pedidos y otro básico en almacenaje, el tránsito intermedio carecía de trazabilidad.",
+        "Como equipo, diseñamos e iteramos una plataforma de microservicios para orquestar el ciclo de vida completo del pedido, dando visibilidad en tiempo real a cada área sin interrumpir la fluidez operativa."
+      ]
+    },
+    {
+      "eyebrow": "El Problema",
+      "title": "El agujero negro de la trazabilidad y la memoria humana",
+      "body": [
+        "Cuando los productos bajaban de la zona de almacenaje hacia las zonas de consolidación, el rastro digital desaparecía, sobre todo por la variedad de presentaciones de los artículos. Esto obligaba a los operadores en el área de consolidación a depender de su memoria o a los recolectores a rastrear constantemente en qué sección física se encontraba cada parte del pedido.",
+        "Aunque se tenía un cierto orden, la carga cognitiva estaba generando cuellos de botella y mezclas accidentales de mercancía entre los diferentes pedidos de los clientes.",
+        "Además, el sistema debía implementarse en un entorno con recursos dispares. Algunas zonas contaban con escáneres láser de códigos de barras (tecnología heredada), otras con nuevos lectores QR y otras con pantallas táctiles, por lo que nuestra plataforma tenía que ser agnóstica al hardware de entrada."
+      ]
+    },
+    {
+      "eyebrow": "Navegando la realidad operativa",
+      "title": "Las reglas físicas dictan el diseño de software",
+      "body": [
+        "Las mejores decisiones surgieron al salir del departamento y hacer visitas al campo para entender sus flujos y operación. Comprendimos que la logística física dicta las reglas del software: por ejemplo, mientras que la mercancía regular fluía desde el almacenaje por un sistema de rampas (con un promedio de tiempo corto), los pedidos masivos en tarimas bajaban por elevadores.",
+        "Ambos compartían el mismo servicio, pero requerían lógicas de encolamiento y promedios de tiempo configurables completamente distintos.",
+        "Además, comprendimos el factor humano: adoptar una nueva herramienta siempre se percibe como \"más trabajo\". Necesitábamos que la interfaz redujera la fricción y devolviera valor inmediato al operario."
+      ]
+    },
+    {
+      "eyebrow": "Exploraciones y Decisiones de Ingeniería",
+      "blocks": [
+        {
+          "type": "heading",
+          "variant": "section",
+          "text": "Interfaz espacial vs. Memorización"
+        },
+        {
+          "type": "paragraph",
+          "text": "Para resolver la pérdida de tiempo en el área de Despacho, implementamos una interfaz visual que mapeaba la disposición física del almacén. En lugar de leer listas de texto plano, el operador veía en pantalla la ubicación exacta de su pedido. Esto eliminó la necesidad de buscar a ciegas y redujo la fricción cognitiva.",
+          "style": {
+            "weight": "default",
+            "tone": "default",
+            "size": "md",
+            "align": "left",
+            "spacing": "default"
+          }
+        },
+        {
+          "type": "heading",
+          "variant": "section",
+          "text": "Microservicios por autonomía operativa, no por escalabilidad"
+        },
+        {
+          "type": "paragraph",
+          "text": "Estructuramos la plataforma en microservicios independientes no por una cuestión de tráfico masivo, sino por autonomía de zonas. Si un pedido llegaba a Consolidación sin los registros previos, el sistema no aplicaba un bloqueo estricto; permitía a la siguiente área continuar con el proceso, consultar o modificar los estados. Personalmente desarrollé el servicio de almacenaje, rampas/elevadores y el servicio de monitoreo.",
+          "style": {
+            "weight": "default",
+            "tone": "default",
+            "size": "md",
+            "align": "left",
+            "spacing": "default"
+          }
+        },
+        {
+          "type": "heading",
+          "variant": "section",
+          "text": "Centralización de Trazabilidad"
+        },
+        {
+          "type": "columns",
+          "style": {
+            "spacing": "relaxed"
+          },
+          "columns": [
+            {
+              "title": "Fuente de verdad",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "El servicio de monitoreo actuaba como fuente de verdad. Trabajaba en conjunto con el servicio núcleo para consolidar estados y evitar que cada zona interpretara el pedido de forma distinta.",
+                  "style": {
+                    "weight": "soft",
+                    "tone": "muted",
+                    "size": "sm",
+                    "align": "left",
+                    "spacing": "tight"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Historial inmutable",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Compilaba los \"fragmentos\" de estado de cada zona, los transformaba en un historial inmutable y distribuía los cambios en tiempo real al resto del sistema para mantener una lectura consistente de la operación.",
+                  "style": {
+                    "weight": "soft",
+                    "tone": "muted",
+                    "size": "sm",
+                    "align": "left",
+                    "spacing": "tight"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Resiliencia",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Operaba con autenticación Servidor a Servidor mediante API Keys y contaba con reintentos exponenciales ante caídas de conexión, lo que nos permitió priorizar continuidad sin endurecer la experiencia del operador.",
+                  "style": {
+                    "weight": "soft",
+                    "tone": "muted",
+                    "size": "sm",
+                    "align": "left",
+                    "spacing": "tight"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "variant": "section",
+          "text": "Tiempo Real y Estandarización"
+        },
+        {
+          "type": "paragraph",
+          "text": "Las zonas periféricas operaban mayormente mediante peticiones REST convencionales y los servicios centrales distribuían los eventos mediante WebSockets a salas específicas. Para facilitar las pruebas cruzadas, definimos un contrato estricto JSON y desarrollamos una plantilla de diagnóstico en Vanilla JS donde el equipo podía documentar y probar rápidamente sus endpoints.",
+          "style": {
+            "weight": "default",
+            "tone": "default",
+            "size": "md",
+            "align": "left",
+            "spacing": "default"
+          }
+        },
+        {
+          "type": "heading",
+          "variant": "section",
+          "text": "Autorización \"cero-táctil\""
+        },
+        {
+          "type": "paragraph",
+          "text": "Minimizamos el uso de pantallas táctiles. El sistema preseleccionaba el contexto por defecto según la zona; el operador solo escaneaba el recibo del pedido y su credencial para confirmar movimientos de mercancía. La única excepción fue el Punto de Transferencia final, donde se instalaron tabletas para la auditoría visual junto al cliente.",
+          "style": {
+            "weight": "default",
+            "tone": "default",
+            "size": "md",
+            "align": "left",
+            "spacing": "default"
+          }
+        }
+      ]
+    },
+    {
+      "eyebrow": "Reflexión",
+      "title": "Priorizando la fluidez operativa",
+      "body": [
+        "El sistema logró erradicar la mezcla de pedidos, alcanzando un promedio de 10 minutos desde la recolección hasta la entrega.",
+        "Sin embargo, los datos de trazabilidad nos enfrentaron a la realidad de la adopción humana y del negocio. Al inicio, notamos que decenas de pedidos quedaban \"abandonados\" por días. Al investigar en campo, descubrimos dos factores: en algunos casos era resistencia al cambio por parte de los operadores, pero en otros, eran clientes que decidían recoger su mercancía en días posteriores.",
+        "Este proyecto me enseñó que el código debe adaptarse al hardware disponible y a las reglas del negocio. La arquitectura debe priorizar la fluidez operativa sobre la rigidez de los datos; y aunque la escalabilidad es importante, no debe ser un obstáculo que paralice la operación. Las mejores funcionalidades nacen interactuando con los usuarios en su entorno real."
+      ]
+    }
+  ]
+}

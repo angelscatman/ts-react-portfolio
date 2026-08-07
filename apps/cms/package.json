@@ -1,0 +1,25 @@
+{
+  "name": "@portfolio/cms",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/run-with-root-env.mjs ../../node_modules/.bin/next dev -p 3001",
+    "build": "node scripts/run-with-root-env.mjs ../../node_modules/.bin/next build",
+    "start": "node scripts/run-with-root-env.mjs ../../node_modules/.bin/next start -p 3001",
+    "payload": "node scripts/run-with-root-env.mjs ../../node_modules/.bin/payload",
+    "generate:importmap": "node scripts/run-with-root-env.mjs ../../node_modules/.bin/payload generate:importmap --config src/payload.config.ts",
+    "generate:types": "node scripts/run-with-root-env.mjs ../../node_modules/.bin/payload generate:types --config src/payload.config.ts",
+    "migrate": "node scripts/run-with-root-env.mjs ../../node_modules/.bin/payload migrate --config src/payload.config.ts",
+    "migrate:create": "node scripts/run-with-root-env.mjs ../../node_modules/.bin/payload migrate:create --config src/payload.config.ts"
+  },
+  "dependencies": {
+    "@payloadcms/db-postgres": "^3.87.0",
+    "@payloadcms/next": "^3.87.0",
+    "@payloadcms/richtext-lexical": "^3.87.0",
+    "graphql": "^16.14.2",
+    "next": "^16.3.0",
+    "payload": "^3.87.0",
+    "sharp": "^0.35.3"
+  }
+}

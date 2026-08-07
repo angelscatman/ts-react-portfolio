@@ -1,0 +1,8 @@
+{
+  "brand": "Angel Scatman",
+  "defaultLocale": "es",
+  "titles": [
+    { "es": "Desarrollador de software", "en": "Software developer" },
+    { "es": "Diseñador de producto", "en": "Product designer" }
+  ]
+}

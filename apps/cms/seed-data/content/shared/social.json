@@ -1,0 +1,23 @@
+[
+  {
+    "id": "github",
+    "label": "GitHub",
+    "href": "https://github.com/angelscatman",
+    "ariaLabel": { "es": "GitHub", "en": "GitHub" },
+    "cursorIcon": "github"
+  },
+  {
+    "id": "linkedin",
+    "label": "LinkedIn",
+    "href": "https://www.linkedin.com/in/angel-scatman/",
+    "ariaLabel": { "es": "LinkedIn", "en": "LinkedIn" },
+    "cursorIcon": "linkedin"
+  },
+  {
+    "id": "email",
+    "label": "angel.cecilio.dev@gmail.com",
+    "href": "mailto:angel.cecilio.dev@gmail.com",
+    "ariaLabel": { "es": "Email", "en": "Email" },
+    "cursorIcon": "mail"
+  }
+]
