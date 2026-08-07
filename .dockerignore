@@ -1,21 +1,50 @@
 .git
 .gitignore
 .agents
+
 node_modules
+
 dist
 dist-ssr
+.next
+apps/cms/.next
+apps/web/dist
 .vite
+
 coverage
 .nyc_output
+
 .env
 .env.*
 !.env.example
+
 *.log
 npm-debug.log*
 yarn-debug.log*
 pnpm-debug.log*
- .DS_Store
- Thumbs.db
- .idea
+
+.DS_Store
+Thumbs.db
+
+.idea
 .vscode
+
 skills-lock.json
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+
+# SSH private keys
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+
+# Other common secret files
+*.jks
+*.keystore

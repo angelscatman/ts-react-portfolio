@@ -1,14 +1,19 @@
 services:
-  portfolio:
+  web:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: ts-portfolio
+      args:
+        PAYLOAD_PUBLIC_SERVER_URL: ${PAYLOAD_PUBLIC_SERVER_URL:-http://localhost:${CMS_PORT:-3001}}
+
+    container_name: ts-portfolio-web
     restart: unless-stopped
 
-    read_only: true # Only allow writing to tmpfs mounts (see below).
+    read_only: true
 
-    # Nginx needs to write to some directories, such as /tmp, /var/cache/nginx, and /var/run.
+    security_opt:
+      - no-new-privileges:true
+
     tmpfs:
       - /tmp:exec,mode=1777
       - /var/cache/nginx
@@ -16,18 +21,125 @@ services:
 
     expose:
       - '8080'
+
     ports:
       - '${HOST_PORT:-8080}:8080'
+
     healthcheck:
-      test: ['CMD-SHELL', 'wget -q -O /dev/null http://127.0.0.1:8080/ || exit 1']
+      test:
+        - CMD-SHELL
+        - wget -q -O /dev/null http://127.0.0.1:8080/ || exit 1
       interval: 30s
       timeout: 5s
       retries: 3
       start_period: 10s
+
     networks:
       - public_network
+
+
+  cms:
+    build:
+      context: .
+      dockerfile: apps/cms/Dockerfile
+      args:
+        PAYLOAD_PUBLIC_SERVER_URL: ${PAYLOAD_PUBLIC_SERVER_URL:-http://localhost:${CMS_PORT:-3001}}
+      secrets:
+        - payload_secret
+
+    container_name: ts-portfolio-cms
+    restart: unless-stopped
+
+    environment:
+      PORT: ${CMS_PORT:-3001}
+
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: '5432'
+      POSTGRES_DB: ${POSTGRES_DB:-portfolio_cms}
+      POSTGRES_USER: ${POSTGRES_USER:-portfolio}
+
+      PAYLOAD_PUBLIC_SERVER_URL: ${PAYLOAD_PUBLIC_SERVER_URL:-http://localhost:${CMS_PORT:-3001}}
+
+    secrets:
+      - payload_secret
+      - postgres_password
+
+    security_opt:
+      - no-new-privileges:true
+
+    expose:
+      - '${CMS_PORT:-3001}'
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    volumes:
+      - cms_uploads:/app/apps/cms/media
+
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - wget -q -O /dev/null http://127.0.0.1:${CMS_PORT:-3001}/ || exit 1
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+    networks:
+      - public_network
+      - internal_network
+
+
+  postgres:
+    image: postgres:16.10-alpine
+    container_name: ts-portfolio-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-portfolio_cms}
+      POSTGRES_USER: ${POSTGRES_USER:-portfolio}
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+
+    secrets:
+      - postgres_password
+
+    security_opt:
+      - no-new-privileges:true
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${POSTGRES_USER:-portfolio} -d ${POSTGRES_DB:-portfolio_cms}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+    networks:
+      - internal_network
+
+
+volumes:
+  cms_uploads:
+  postgres_data:
+
 
 networks:
   public_network:
     external: true
     name: ${PUBLIC_NETWORK_NAME:-public_network}
+
+  internal_network:
+    internal: true
+
+
+secrets:
+  payload_secret:
+    environment: PAYLOAD_SECRET
+
+  postgres_password:
+    environment: POSTGRES_PASSWORD

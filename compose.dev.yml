@@ -1,0 +1,4 @@
+services:
+  cms:
+    ports:
+      - '${CMS_PORT:-3001}:${CMS_PORT:-3001}'
